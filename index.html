@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+	<meta name="description" content="just a page showing the years progress" >
+
+    <title>Year is at</title>
+    <style>
+		#bar{
+			width: 90%;
+			margin: 10px auto;
+			border: 2px solid #666;
+			background: #fefefe;
+			
+			
+		}
+		#progress{
+			background: #007700;
+			padding: 10px 0 10px 0;
+			width: 99%;
+			height: 100%;
+		}
+	</style>
+  </head>
+
+  <body>
+    <div id="bar">
+	<div id="progress">0%</div>
+	</div>
+	<script>
+	var now = new Date();
+	var year = now.getFullYear();
+	
+	var percent = Math.floor((now - new Date(year, 0, 0)) / (86400000))/((((year % 4 === 0 && year % 100 > 0) || year %400 == 0) ? 366 : 365)/100);
+	
+	var bar = document.getElementById("progress");
+	
+
+	
+	bar.style.width = bar.innerHTML  =  Math.floor(percent) + "%";
+
+	</script>
+  </body>
+</html>
+
